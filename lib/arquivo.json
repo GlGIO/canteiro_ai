@@ -1,0 +1,86 @@
+{
+    "Area construida": {
+        "area_name": "Area construida",
+        "x1": 3.0,
+        "y1": 3.0,
+        "x2": 9.0,
+        "y2": 17.0
+    },
+    "Entrada de Acesso": {
+        "area_name": "Entrada de Acesso",
+        "x1": 2.25,
+        "y1": 0,
+        "x2": 6.75,
+        "y2": 2
+    },
+    "Almocharifado": {
+        "area_name": "Almocharifado",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Escritórios": {
+        "area_name": "Escritórios",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Refeitorio": {
+        "area_name": "Refeitorio",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Vestiários": {
+        "area_name": "Vestiários",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Banheiros": {
+        "area_name": "Banheiros",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Áreas de Montagem e Fabricação": {
+        "area_name": "Áreas de Montagem e Fabricação",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Cimento": {
+        "area_name": "Cimento",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Areia e Brita": {
+        "area_name": "Areia e Brita",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Equipamentos": {
+        "area_name": "Equipamentos",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    },
+    "Áreas de Descarte de Resíduos": {
+        "area_name": "Áreas de Descarte de Resíduos",
+        "x1": 0,
+        "y1": 0,
+        "x2": 0,
+        "y2": 0
+    }
+}
