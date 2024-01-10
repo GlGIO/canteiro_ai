@@ -10,6 +10,7 @@ import 'package:canteiro_ai/util/db.dart';
 import 'package:canteiro_ai/module/layoutinfo/domain/repository/layoutinfo_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class LayoutInfoRepositoryImp implements LayoutInfoRepository {
   final DatabaseSQFlite localDatabase;
@@ -68,6 +69,8 @@ class LayoutInfoRepositoryImp implements LayoutInfoRepository {
 
   @override
   AddNewLayoutResult addNewLayout(AddNewLayoutParams params) async {
+    final apiKey = dotenv.env['API_KEY'];
+
     final Map<String, dynamic> layoutInfoMap = {
       'title': params.title,
       'local': params.local,
@@ -170,7 +173,6 @@ class LayoutInfoRepositoryImp implements LayoutInfoRepository {
    }
   """;
 
-    String apiKey = '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';
     String endpoint = 'https://api.openai.com/v1/chat/completions';
 
     final dio = Dio();
