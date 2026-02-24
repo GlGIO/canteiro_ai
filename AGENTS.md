@@ -16,7 +16,7 @@ Flutter/Dart mobile application for AI-powered construction site layout optimiza
 
 - **Flutter SDK** must be installed at `/opt/flutter` and on `PATH` (`export PATH="/opt/flutter/bin:$PATH"`).
 - **Google Chrome** is required for Flutter web dev server (set `CHROME_EXECUTABLE=$(which google-chrome)`).
-- System packages needed for Flutter Linux/web: `clang cmake ninja-build pkg-config libgtk-3-dev`.
+- System packages needed for Flutter Linux/web: `clang cmake ninja-build pkg-config libgtk-3-dev libstdc++-14-dev lld-18 llvm-18 libsqlite3-dev`.
 
 ### Common commands
 
@@ -25,13 +25,15 @@ Flutter/Dart mobile application for AI-powered construction site layout optimiza
 | Install deps | `flutter pub get` |
 | Lint / analyze | `flutter analyze` |
 | Run tests | `flutter test` |
+| Run on Linux desktop | `DISPLAY=:1 flutter run -d linux` |
 | Run web dev server | `CHROME_EXECUTABLE=$(which google-chrome) flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0` |
-| Run on Linux desktop | `flutter run -d linux` |
 
 ### Gotchas
 
+- **Prefer Linux desktop over web** for testing. The app uses `sqflite` which needs native SQLite. On Linux desktop, `sqflite_common_ffi` handles this (initialized in `main.dart`). On web, `sqflite` does not work — the database calls fail silently and the layouts list appears empty.
 - The `.env` file (containing `API_KEY` for OpenAI) must be listed under `assets:` in `pubspec.yaml` for `flutter_dotenv` to load it in web mode. This was added as a fix during setup.
 - A root route redirect (`/` → `/home/`) was added in `lib/module/app_module.dart` because `flutter_modular` doesn't serve the home module at `/` by default.
 - The default widget test (`test/widget_test.dart`) is a leftover counter app smoke test and does **not** match the actual app. It will fail — this is expected.
 - `flutter analyze` reports 4 `info`-level deprecation warnings (e.g., `withOpacity`, `MaterialStateProperty`). These are non-blocking.
 - The committed `API_KEY` in `.env` is likely revoked. A valid OpenAI API key is needed to use the AI layout generation feature.
+- The database seeds 3 mock construction site layouts on first run (see `lib/util/db.dart` `_seedMockData`). This allows testing without an OpenAI API key.
